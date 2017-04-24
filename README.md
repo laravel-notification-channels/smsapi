@@ -4,7 +4,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/laravel-notification-channels/smsapi/master.svg)](https://travis-ci.org/laravel-notification-channels/smsapi)
 [![StyleCI](https://styleci.io/repos/89257474/shield)](https://styleci.io/repos/89257474)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/18cfad29-20b9-46c2-90d8-57576079a58a.svg)](https://insight.sensiolabs.com/projects/18cfad29-20b9-46c2-90d8-57576079a58a)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/ad06fe03-5646-42fd-b59a-dbaa0c3752d5.svg)](https://insight.sensiolabs.com/projects/ad06fe03-5646-42fd-b59a-dbaa0c3752d5)
 [![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/smsapi.svg)](https://scrutinizer-ci.com/g/laravel-notification-channels/smsapi)
 [![Code Coverage](https://scrutinizer-ci.com/g/laravel-notification-channels/smsapi/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/laravel-notification-channels/smsapi/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/smsapi.svg)](https://packagist.org/packages/laravel-notification-channels/smsapi)
