@@ -2,9 +2,9 @@
 
 namespace NotificationChannels\Smsapi\Tests;
 
+use stdClass;
 use InvalidArgumentException;
 use NotificationChannels\Smsapi\SmsapiMessage;
-use stdClass;
 
 /**
  * @internal

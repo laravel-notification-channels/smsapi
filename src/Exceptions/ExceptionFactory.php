@@ -36,6 +36,7 @@ class ExceptionFactory
                 return true;
             }
         }
+
         return false;
     }
 
@@ -50,7 +51,7 @@ class ExceptionFactory
     public static function assertArgumentType($argumentPosition, $function, $expectedType, $providedArgument)
     {
         $ok = self::checkArgumentType($expectedType, $providedArgument);
-        if (!$ok) {
+        if (! $ok) {
             $providedType = gettype($providedArgument);
             throw self::createInvalidArgumentException($argumentPosition, $function, $expectedType, $providedType);
         }
@@ -67,7 +68,7 @@ class ExceptionFactory
     public static function assertArgumentTypes($argumentPosition, $function, $expectedTypes, $providedArgument)
     {
         $ok = self::checkArgumentTypes($expectedTypes, $providedArgument);
-        if (!$ok) {
+        if (! $ok) {
             $providedType = gettype($providedArgument);
             throw self::createInvalidArgumentException($argumentPosition, $function, $expectedTypes, $providedType);
         }
@@ -82,11 +83,12 @@ class ExceptionFactory
      */
     public static function createInvalidArgumentException($argumentPosition, $function, $expectedTypes, $providedType)
     {
-        if (!is_array($expectedTypes)) {
+        if (! is_array($expectedTypes)) {
             $expectedTypes = [$expectedTypes];
         }
+
         return new InvalidArgumentException(sprintf(
-            "Argument %d passed to %s() must be of the type %s, %s given",
+            'Argument %d passed to %s() must be of the type %s, %s given',
             $argumentPosition, $function, implode(' or ', $expectedTypes), $providedType
         ));
     }
