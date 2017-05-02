@@ -179,16 +179,16 @@ public function routeNotificationForSmsapiGroup()
 - `content(string $content)`
 - `template(string $template)`
 - `from(string $from)`
-- `fast(bool $fast)`
-- `flash(bool $flash)`
+- `fast(bool $fast = true)`
+- `flash(bool $flash = true)`
 - `encoding(string $encoding)`
-- `normalize(bool $normalize)`
-- `nounicode(bool $nounicode)`
-- `single(bool $single)`
+- `normalize(bool $normalize = true)`
+- `nounicode(bool $nounicode = true)`
+- `single(bool $single = true)`
 - `date(int|string $date)`
 - `notifyUrl(string $notifyUrl)`
 - `partner(string $partner)`
-- `test(bool $test)`
+- `test(bool $test = true)`
 
 #### SmsapiMmsMessage
 
@@ -199,7 +199,7 @@ public function routeNotificationForSmsapiGroup()
 - `date(int|string $date)`
 - `notifyUrl(string $notifyUrl)`
 - `partner(string $partner)`
-- `test(bool $test)`
+- `test(bool $test = true)`
 
 #### SmsapiVmsMessage
 
@@ -211,11 +211,11 @@ public function routeNotificationForSmsapiGroup()
 - `from(string $from)`
 - `tries(int $tries)`
 - `interval(int $interval)`
-- `skipGsm(bool $skipGsm)`
+- `skipGsm(bool $skipGsm = true)`
 - `date(int|string $date)`
 - `notifyUrl(string $notifyUrl)`
 - `partner(string $partner)`
-- `test(bool $test)`
+- `test(bool $test = true)`
 
 ## Changelog
 
