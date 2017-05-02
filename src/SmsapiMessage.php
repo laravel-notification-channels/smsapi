@@ -2,6 +2,8 @@
 
 namespace NotificationChannels\Smsapi;
 
+use NotificationChannels\Smsapi\Exceptions\ExceptionFactory;
+
 abstract class SmsapiMessage
 {
     /**
@@ -16,6 +18,7 @@ abstract class SmsapiMessage
      */
     public function to($to)
     {
+        ExceptionFactory::assertArgumentTypes(1, __METHOD__, ['string', 'array'], $to);
         $this->data['to'] = $to;
 
         return $this;
@@ -27,17 +30,19 @@ abstract class SmsapiMessage
      */
     public function group($group)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $group);
         $this->data['group'] = $group;
 
         return $this;
     }
 
     /**
-     * @param  string $date
+     * @param  int|string $date
      * @return self
      */
     public function date($date)
     {
+        ExceptionFactory::assertArgumentTypes(1, __METHOD__, ['integer', 'string'], $date);
         $this->data['date'] = $date;
 
         return $this;
@@ -49,6 +54,7 @@ abstract class SmsapiMessage
      */
     public function notifyUrl($notifyUrl)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $notifyUrl);
         $this->data['notify_url'] = $notifyUrl;
 
         return $this;
@@ -60,6 +66,7 @@ abstract class SmsapiMessage
      */
     public function partner($partner)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $partner);
         $this->data['partner'] = $partner;
 
         return $this;
@@ -71,6 +78,7 @@ abstract class SmsapiMessage
      */
     public function test($test)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $test);
         $this->data['test'] = $test;
 
         return $this;

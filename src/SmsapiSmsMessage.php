@@ -2,6 +2,8 @@
 
 namespace NotificationChannels\Smsapi;
 
+use NotificationChannels\Smsapi\Exceptions\ExceptionFactory;
+
 class SmsapiSmsMessage extends SmsapiMessage
 {
     /**
@@ -9,7 +11,8 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function __construct($content = null)
     {
-        if (is_string($content)) {
+        ExceptionFactory::assertArgumentTypes(1, __METHOD__, ['string', 'NULL'], $content);
+        if ($content !== null) {
             $this->data['content'] = $content;
         }
     }
@@ -20,6 +23,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function content($content)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $content);
         $this->data['content'] = $content;
 
         return $this;
@@ -31,6 +35,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function template($template)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $template);
         $this->data['template'] = $template;
 
         return $this;
@@ -42,6 +47,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function from($from)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $from);
         $this->data['from'] = $from;
 
         return $this;
@@ -53,6 +59,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function fast($fast)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $fast);
         $this->data['fast'] = $fast;
 
         return $this;
@@ -64,6 +71,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function flash($flash)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $flash);
         $this->data['flash'] = $flash;
 
         return $this;
@@ -75,6 +83,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function encoding($encoding)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $encoding);
         $this->data['encoding'] = $encoding;
 
         return $this;
@@ -86,6 +95,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function normalize($normalize)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $normalize);
         $this->data['normalize'] = $normalize;
 
         return $this;
@@ -97,6 +107,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function nounicode($nounicode)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $nounicode);
         $this->data['nounicode'] = $nounicode;
 
         return $this;
@@ -108,6 +119,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      */
     public function single($single)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $single);
         $this->data['single'] = $single;
 
         return $this;

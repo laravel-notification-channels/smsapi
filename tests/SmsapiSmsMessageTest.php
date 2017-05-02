@@ -2,6 +2,7 @@
 
 namespace NotificationChannels\Smsapi\Tests;
 
+use InvalidArgumentException;
 use NotificationChannels\Smsapi\SmsapiSmsMessage;
 
 /**
@@ -13,17 +14,6 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
     {
         parent::setUp();
         $this->message = new SmsapiSmsMessage();
-    }
-
-    /**
-     * @return array
-     */
-    public function provideBool()
-    {
-        return [
-            'true' => [true],
-            'false' => [false],
-        ];
     }
 
     /** @test */
@@ -40,6 +30,18 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
         $this->assertEquals('Text', $this->message->data['content']);
     }
 
+    /**
+     * @test
+     * @dataProvider provideNotString
+     *
+     * @param mixed $content
+     */
+    public function set_wrong_content($content)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->content($content);
+    }
+
     /** @test */
     public function set_template()
     {
@@ -47,11 +49,35 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
         $this->assertEquals('Template', $this->message->data['template']);
     }
 
+    /**
+     * @test
+     * @dataProvider provideNotString
+     *
+     * @param mixed $template
+     */
+    public function set_wrong_template($template)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->template($template);
+    }
+
     /** @test */
     public function set_from()
     {
         $this->message->from('Eco');
         $this->assertEquals('Eco', $this->message->data['from']);
+    }
+
+    /**
+     * @test
+     * @dataProvider provideNotString
+     *
+     * @param mixed $from
+     */
+    public function set_wrong_from($from)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->from($from);
     }
 
     /**
@@ -68,6 +94,18 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @dataProvider provideNotBool
+     *
+     * @param mixed $fast
+     */
+    public function set_wrong_fast($fast)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->fast($fast);
+    }
+
+    /**
+     * @test
      * @dataProvider provideBool
      *
      * @param bool $flash
@@ -78,11 +116,35 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
         $this->assertEquals($flash, $this->message->data['flash']);
     }
 
+    /**
+     * @test
+     * @dataProvider provideNotBool
+     *
+     * @param mixed $flash
+     */
+    public function set_wrong_flash($flash)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->flash($flash);
+    }
+
     /** @test */
     public function set_encoding()
     {
         $this->message->encoding('utf-8');
         $this->assertEquals('utf-8', $this->message->data['encoding']);
+    }
+
+    /**
+     * @test
+     * @dataProvider provideNotString
+     *
+     * @param mixed $encoding
+     */
+    public function set_wrong_encoding($encoding)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->encoding($encoding);
     }
 
     /**
@@ -99,6 +161,18 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @dataProvider provideNotBool
+     *
+     * @param mixed $normalize
+     */
+    public function set_wrong_normalize($normalize)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->normalize($normalize);
+    }
+
+    /**
+     * @test
      * @dataProvider provideBool
      *
      * @param bool $nounicode
@@ -111,6 +185,18 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @dataProvider provideNotBool
+     *
+     * @param mixed $nounicode
+     */
+    public function set_wrong_nounicode($nounicode)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->nounicode($nounicode);
+    }
+
+    /**
+     * @test
      * @dataProvider provideBool
      *
      * @param bool $single
@@ -119,5 +205,17 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
     {
         $this->message->single($single);
         $this->assertEquals($single, $this->message->data['single']);
+    }
+
+    /**
+     * @test
+     * @dataProvider provideNotBool
+     *
+     * @param mixed $single
+     */
+    public function set_wrong_single($single)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->message->single($single);
     }
 }

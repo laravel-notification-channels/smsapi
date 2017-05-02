@@ -2,6 +2,8 @@
 
 namespace NotificationChannels\Smsapi;
 
+use NotificationChannels\Smsapi\Exceptions\ExceptionFactory;
+
 class SmsapiMmsMessage extends SmsapiMessage
 {
     /**
@@ -10,6 +12,7 @@ class SmsapiMmsMessage extends SmsapiMessage
      */
     public function subject($subject)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $subject);
         $this->data['subject'] = $subject;
 
         return $this;
@@ -21,6 +24,7 @@ class SmsapiMmsMessage extends SmsapiMessage
      */
     public function smil($smil)
     {
+        ExceptionFactory::assertArgumentType(1, __METHOD__, 'string', $smil);
         $this->data['smil'] = $smil;
 
         return $this;
