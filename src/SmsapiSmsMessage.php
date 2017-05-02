@@ -57,7 +57,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      * @param  bool $fast
      * @return self
      */
-    public function fast($fast)
+    public function fast($fast = true)
     {
         ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $fast);
         $this->data['fast'] = $fast;
@@ -69,7 +69,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      * @param  bool $flash
      * @return self
      */
-    public function flash($flash)
+    public function flash($flash = true)
     {
         ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $flash);
         $this->data['flash'] = $flash;
@@ -93,7 +93,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      * @param  bool $normalize
      * @return self
      */
-    public function normalize($normalize)
+    public function normalize($normalize = true)
     {
         ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $normalize);
         $this->data['normalize'] = $normalize;
@@ -105,7 +105,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      * @param  bool $nounicode
      * @return self
      */
-    public function nounicode($nounicode)
+    public function nounicode($nounicode = true)
     {
         ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $nounicode);
         $this->data['nounicode'] = $nounicode;
@@ -117,7 +117,7 @@ class SmsapiSmsMessage extends SmsapiMessage
      * @param  bool $single
      * @return self
      */
-    public function single($single)
+    public function single($single = true)
     {
         ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $single);
         $this->data['single'] = $single;

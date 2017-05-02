@@ -171,6 +171,16 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
     /**
      * @test
      * @covers ::skipGsm
+     */
+    public function set_default_skip_gsm()
+    {
+        $this->message->skipGsm();
+        $this->assertEquals(true, $this->message->data['skip_gsm']);
+    }
+
+    /**
+     * @test
+     * @covers ::skipGsm
      * @dataProvider provideNotBool
      *
      * @param mixed $skipGsm

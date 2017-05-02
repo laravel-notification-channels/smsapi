@@ -82,7 +82,7 @@ class SmsapiVmsMessage extends SmsapiMessage
      * @param  bool $skipGsm
      * @return self
      */
-    public function skipGsm($skipGsm)
+    public function skipGsm($skipGsm = true)
     {
         ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $skipGsm);
         $this->data['skip_gsm'] = $skipGsm;

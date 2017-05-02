@@ -111,6 +111,16 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::test
+     */
+    public function set_default_fast()
+    {
+        $this->message->fast();
+        $this->assertEquals(true, $this->message->data['fast']);
+    }
+
+    /**
+     * @test
      * @covers ::fast
      * @dataProvider provideNotBool
      *
@@ -133,6 +143,16 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
     {
         $this->message->flash($flash);
         $this->assertEquals($flash, $this->message->data['flash']);
+    }
+
+    /**
+     * @test
+     * @covers ::flash
+     */
+    public function set_default_flash()
+    {
+        $this->message->flash();
+        $this->assertEquals(true, $this->message->data['flash']);
     }
 
     /**
@@ -187,6 +207,16 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
     /**
      * @test
      * @covers ::normalize
+     */
+    public function set_default_normalize()
+    {
+        $this->message->normalize();
+        $this->assertEquals(true, $this->message->data['normalize']);
+    }
+
+    /**
+     * @test
+     * @covers ::normalize
      * @dataProvider provideNotBool
      *
      * @param mixed $normalize
@@ -213,6 +243,16 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
     /**
      * @test
      * @covers ::nounicode
+     */
+    public function set_default_nounicode()
+    {
+        $this->message->nounicode();
+        $this->assertEquals(true, $this->message->data['nounicode']);
+    }
+
+    /**
+     * @test
+     * @covers ::nounicode
      * @dataProvider provideNotBool
      *
      * @param mixed $nounicode
@@ -234,6 +274,16 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
     {
         $this->message->single($single);
         $this->assertEquals($single, $this->message->data['single']);
+    }
+
+    /**
+     * @test
+     * @covers ::test
+     */
+    public function set_default_single()
+    {
+        $this->message->single();
+        $this->assertEquals(true, $this->message->data['single']);
     }
 
     /**

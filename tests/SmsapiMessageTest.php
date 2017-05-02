@@ -246,6 +246,16 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      * @covers ::test
+     */
+    public function set_default_test()
+    {
+        $this->message->test();
+        $this->assertEquals(true, $this->message->data['test']);
+    }
+
+    /**
+     * @test
+     * @covers ::test
      * @dataProvider provideNotBool
      *
      * @param mixed $test

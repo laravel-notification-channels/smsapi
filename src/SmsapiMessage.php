@@ -76,7 +76,7 @@ abstract class SmsapiMessage
      * @param  bool $test
      * @return self
      */
-    public function test($test)
+    public function test($test = true)
     {
         ExceptionFactory::assertArgumentType(1, __METHOD__, 'boolean', $test);
         $this->data['test'] = $test;
