@@ -8,6 +8,7 @@ use NotificationChannels\Smsapi\SmsapiMessage;
 
 /**
  * @internal
+ * @coversDefaultClass \NotificationChannels\Smsapi\SmsapiMessage
  */
 abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 {
@@ -103,6 +104,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers ::to
      * @dataProvider provideTo
      *
      * @param string|string[] $to
@@ -115,6 +117,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers ::to
      * @dataProvider provideWrongTo
      *
      * @param mixed $to
@@ -125,7 +128,10 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
         $this->message->to($to);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::group
+     */
     public function set_group()
     {
         $this->message->group('Test');
@@ -134,6 +140,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers ::group
      * @dataProvider provideNotString
      *
      * @param mixed $group
@@ -144,14 +151,20 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
         $this->message->group($group);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::date
+     */
     public function set_date1()
     {
         $this->message->date(1287734110);
         $this->assertEquals(1287734110, $this->message->data['date']);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::date
+     */
     public function set_date2()
     {
         $this->message->date('2012-05-10T08:40:27+00:00');
@@ -160,6 +173,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers ::date
      * @dataProvider provideWrongDate
      *
      * @param mixed $date
@@ -170,7 +184,10 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
         $this->message->date($date);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::notifyUrl
+     */
     public function set_notify_url()
     {
         $this->message->notifyUrl('http://example.com/');
@@ -179,6 +196,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * covers ::notifyUrl
      * @dataProvider provideNotString
      *
      * @param mixed $notifyUrl
@@ -189,7 +207,10 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
         $this->message->notifyUrl($notifyUrl);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::partner
+     */
     public function set_partner()
     {
         $this->message->partner('Test');
@@ -198,6 +219,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers ::partner
      * @dataProvider provideNotString
      *
      * @param mixed $partner
@@ -210,6 +232,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers ::test
      * @dataProvider provideBool
      *
      * @param bool $test
@@ -222,6 +245,7 @@ abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @covers ::test
      * @dataProvider provideNotBool
      *
      * @param mixed $test

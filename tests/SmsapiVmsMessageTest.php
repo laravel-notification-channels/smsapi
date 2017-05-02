@@ -7,6 +7,7 @@ use NotificationChannels\Smsapi\SmsapiVmsMessage;
 
 /**
  * @internal
+ * @coversDefaultClass \NotificationChannels\Smsapi\SmsapiVmsMessage
  */
 class SmsapiVmsMessageTest extends SmsapiMessageTest
 {
@@ -16,7 +17,10 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
         $this->message = new SmsapiVmsMessage();
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::file
+     */
     public function set_file()
     {
         $this->message->file('/file');
@@ -25,6 +29,7 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::file
      * @dataProvider provideNotString
      *
      * @param mixed $file
@@ -35,7 +40,10 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
         $this->message->file($file);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::tts
+     */
     public function set_tts()
     {
         $this->message->tts('Text to speech');
@@ -44,6 +52,7 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::tts
      * @dataProvider provideNotString
      *
      * @param mixed $tts
@@ -54,7 +63,10 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
         $this->message->tts($tts);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::ttsLector
+     */
     public function set_tts_lector()
     {
         $this->message->ttsLector('Agnieszka');
@@ -63,6 +75,7 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::ttsLector
      * @dataProvider provideNotString
      *
      * @param mixed $ttsLector
@@ -73,7 +86,10 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
         $this->message->ttsLector($ttsLector);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::from
+     */
     public function set_from()
     {
         $this->message->from('Eco');
@@ -82,6 +98,7 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::from
      * @dataProvider provideNotString
      *
      * @param mixed $from
@@ -92,7 +109,10 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
         $this->message->from($from);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::tries
+     */
     public function set_tries()
     {
         $this->message->tries(3);
@@ -101,6 +121,7 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::tries
      * @dataProvider provideNotInt
      *
      * @param mixed $tries
@@ -111,7 +132,10 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
         $this->message->tries($tries);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::interval
+     */
     public function set_interval()
     {
         $this->message->interval(3000);
@@ -120,6 +144,7 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::interval
      * @dataProvider provideNotInt
      *
      * @param mixed $interval
@@ -132,9 +157,10 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::skipGsm
      * @dataProvider provideBool
      *
-     * @param bool $fast
+     * @param bool $skipGsm
      */
     public function set_skip_gsm($skipGsm)
     {
@@ -144,6 +170,7 @@ class SmsapiVmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::skipGsm
      * @dataProvider provideNotBool
      *
      * @param mixed $skipGsm

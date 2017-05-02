@@ -7,6 +7,7 @@ use NotificationChannels\Smsapi\SmsapiSmsMessage;
 
 /**
  * @internal
+ * @coversDefaultClass \NotificationChannels\Smsapi\SmsapiSmsMessage
  */
 class SmsapiSmsMessageTest extends SmsapiMessageTest
 {
@@ -16,14 +17,20 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
         $this->message = new SmsapiSmsMessage();
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::__construct
+     */
     public function set_content_by_constructor()
     {
         $message = new SmsapiSmsMessage('Text');
         $this->assertEquals('Text', $message->data['content']);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::content
+     */
     public function set_content()
     {
         $this->message->content('Text');
@@ -32,6 +39,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::content
      * @dataProvider provideNotString
      *
      * @param mixed $content
@@ -42,7 +50,10 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
         $this->message->content($content);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::template
+     */
     public function set_template()
     {
         $this->message->template('Template');
@@ -51,6 +62,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::template
      * @dataProvider provideNotString
      *
      * @param mixed $template
@@ -61,7 +73,10 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
         $this->message->template($template);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::from
+     */
     public function set_from()
     {
         $this->message->from('Eco');
@@ -70,6 +85,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::from
      * @dataProvider provideNotString
      *
      * @param mixed $from
@@ -82,6 +98,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::fast
      * @dataProvider provideBool
      *
      * @param bool $fast
@@ -94,6 +111,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::fast
      * @dataProvider provideNotBool
      *
      * @param mixed $fast
@@ -106,6 +124,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::flash
      * @dataProvider provideBool
      *
      * @param bool $flash
@@ -118,6 +137,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::flash
      * @dataProvider provideNotBool
      *
      * @param mixed $flash
@@ -128,7 +148,10 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
         $this->message->flash($flash);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::encoding
+     */
     public function set_encoding()
     {
         $this->message->encoding('utf-8');
@@ -137,6 +160,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::encoding
      * @dataProvider provideNotString
      *
      * @param mixed $encoding
@@ -149,6 +173,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::normalize
      * @dataProvider provideBool
      *
      * @param bool $normalize
@@ -161,6 +186,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::normalize
      * @dataProvider provideNotBool
      *
      * @param mixed $normalize
@@ -173,6 +199,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::nounicode
      * @dataProvider provideBool
      *
      * @param bool $nounicode
@@ -185,6 +212,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::nounicode
      * @dataProvider provideNotBool
      *
      * @param mixed $nounicode
@@ -197,6 +225,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::single
      * @dataProvider provideBool
      *
      * @param bool $single
@@ -209,6 +238,7 @@ class SmsapiSmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::single
      * @dataProvider provideNotBool
      *
      * @param mixed $single

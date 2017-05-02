@@ -7,6 +7,7 @@ use NotificationChannels\Smsapi\SmsapiMmsMessage;
 
 /**
  * @internal
+ * @coversDefaultClass \NotificationChannels\Smsapi\SmsapiMmsMessage
  */
 class SmsapiMmsMessageTest extends SmsapiMessageTest
 {
@@ -16,7 +17,10 @@ class SmsapiMmsMessageTest extends SmsapiMessageTest
         $this->message = new SmsapiMmsMessage();
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::subject
+     */
     public function set_subject()
     {
         $this->message->subject('Subject');
@@ -25,6 +29,7 @@ class SmsapiMmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::subject
      * @dataProvider provideNotString
      *
      * @param mixed $subject
@@ -35,7 +40,10 @@ class SmsapiMmsMessageTest extends SmsapiMessageTest
         $this->message->subject($subject);
     }
 
-    /** @test */
+    /**
+     * @test
+     * @covers ::smil
+     */
     public function set_smil()
     {
         $this->message->smil('<smil></smil>');
@@ -44,6 +52,7 @@ class SmsapiMmsMessageTest extends SmsapiMessageTest
 
     /**
      * @test
+     * @covers ::smil
      * @dataProvider provideNotString
      *
      * @param mixed $smil

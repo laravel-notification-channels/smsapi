@@ -8,6 +8,10 @@ use SMSApi\Proxy\Http\AbstractHttp as Proxy;
 use NotificationChannels\Smsapi\SmsapiClient;
 use NotificationChannels\Smsapi\SmsapiSmsMessage;
 
+/**
+ * @internal
+ * @coversDefaultClass SmsapiClient
+ */
 class SmsapiClientTest extends \PHPUnit_Framework_TestCase
 {
     /**
