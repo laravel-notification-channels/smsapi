@@ -3,16 +3,17 @@
 namespace NotificationChannels\Smsapi\Tests;
 
 use Mockery;
-use SMSApi\Client;
-use SMSApi\Proxy\Http\AbstractHttp as Proxy;
 use NotificationChannels\Smsapi\SmsapiClient;
 use NotificationChannels\Smsapi\SmsapiSmsMessage;
+use PHPUnit\Framework\TestCase;
+use SMSApi\Client;
+use SMSApi\Proxy\Http\AbstractHttp as Proxy;
 
 /**
  * @internal
  * @coversDefaultClass SmsapiClient
  */
-class SmsapiClientTest extends \PHPUnit_Framework_TestCase
+class SmsapiClientTest extends TestCase
 {
     /**
      * @var Proxy
@@ -24,7 +25,7 @@ class SmsapiClientTest extends \PHPUnit_Framework_TestCase
      */
     private $client;
 
-    public function setUp()
+    public function setUp():void
     {
         parent::setUp();
         $this->proxy = Mockery::mock(Proxy::class)->makePartial()->shouldAllowMockingProtectedMethods();
