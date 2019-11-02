@@ -2,12 +2,12 @@
 
 namespace NotificationChannels\Smsapi;
 
-use SMSApi\Client;
-use SMSApi\Proxy\Proxy;
 use SMSApi\Api\MmsFactory;
+use SMSApi\Api\Response\Response;
 use SMSApi\Api\SmsFactory;
 use SMSApi\Api\VmsFactory;
-use SMSApi\Api\Response\Response;
+use SMSApi\Client;
+use SMSApi\Proxy\Proxy;
 
 class SmsapiClient
 {

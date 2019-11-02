@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Smsapi;
 
-use SMSApi\Client;
 use Illuminate\Support\ServiceProvider;
+use SMSApi\Client;
 
 class SmsapiServiceProvider extends ServiceProvider
 {
