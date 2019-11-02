@@ -11,7 +11,7 @@ use NotificationChannels\Smsapi\SmsapiMmsMessage;
  */
 class SmsapiMmsMessageTest extends SmsapiMessageTest
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->message = new SmsapiMmsMessage();

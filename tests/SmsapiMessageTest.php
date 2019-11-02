@@ -2,15 +2,16 @@
 
 namespace NotificationChannels\Smsapi\Tests;
 
-use stdClass;
 use InvalidArgumentException;
 use NotificationChannels\Smsapi\SmsapiMessage;
+use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * @internal
  * @coversDefaultClass \NotificationChannels\Smsapi\SmsapiMessage
  */
-abstract class SmsapiMessageTest extends \PHPUnit_Framework_TestCase
+abstract class SmsapiMessageTest extends TestCase
 {
     /**
      * @var SmsapiMessage
