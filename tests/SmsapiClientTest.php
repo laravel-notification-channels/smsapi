@@ -25,7 +25,7 @@ class SmsapiClientTest extends TestCase
      */
     private $client;
 
-    public function setUp():void
+    public function setUp(): void
     {
         parent::setUp();
         $this->proxy = Mockery::mock(Proxy::class)->makePartial()->shouldAllowMockingProtectedMethods();
