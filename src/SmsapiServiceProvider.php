@@ -4,6 +4,7 @@ namespace NotificationChannels\Smsapi;
 
 use Illuminate\Support\ServiceProvider;
 use SMSApi\Client;
+use SMSApi\Proxy\Http\Native;
 
 class SmsapiServiceProvider extends ServiceProvider
 {
@@ -16,7 +17,7 @@ class SmsapiServiceProvider extends ServiceProvider
             ->needs(SmsapiClient::class)
             ->give(function () {
                 $config = config('smsapi');
-                $auth = $config['auth'];
+                $auth = $config['auth'] + ['service_domain' => 'PL'];
                 if ($auth['method'] === 'token') {
                     $client = Client::createFromToken($auth['credentials']['token']);
                 } elseif ($auth['method'] === 'password') {
@@ -44,7 +45,11 @@ class SmsapiServiceProvider extends ServiceProvider
                     });
                 }, $defaults);
 
-                return new SmsapiClient($client, $defaults);
+                $proxy = strtoupper($auth['service_domain']) == 'COM'
+                    ? new Native('https://api.smsapi.com')
+                    : new Native('https://api.smsapi.pl');
+
+                return new SmsapiClient($client, $defaults, $proxy);
             });
 
         if ($this->app->runningInConsole()) {
