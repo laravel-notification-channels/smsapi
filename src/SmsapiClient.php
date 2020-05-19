@@ -194,7 +194,7 @@ class SmsapiClient
     }
 
     /**
-     * Merge defaults into message data
+     * Merge defaults into message data.
      *
      * @param array $data message data
      * @param string $type sms, mms, vms
