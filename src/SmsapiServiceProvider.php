@@ -2,6 +2,7 @@
 
 namespace NotificationChannels\Smsapi;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use SMSApi\Client;
 
@@ -25,19 +26,19 @@ class SmsapiServiceProvider extends ServiceProvider
                 }
                 $defaults = $config['defaults'] + ['sms' => [], 'mms' => [], 'vms' => []];
                 if (! empty($defaults['common'])) {
-                    $defaults['common'] = array_only($defaults['common'], [
+                    $defaults['common'] = Arr::only($defaults['common'], [
                         'notify_url', 'partner', 'test',
                     ]);
-                    $defaults['sms'] = array_only($defaults['sms'] + $defaults['common'], [
+                    $defaults['sms'] = Arr::only($defaults['sms'] + $defaults['common'], [
                         'from', 'fast', 'flash', 'encoding', 'normalize', 'nounicode', 'single',
                     ]);
-                    $defaults['mms'] = array_only($defaults['mms'] + $defaults['common'], [
+                    $defaults['mms'] = Arr::only($defaults['mms'] + $defaults['common'], [
                     ]);
-                    $defaults['vms'] = array_only($defaults['vms'] + $defaults['common'], [
+                    $defaults['vms'] = Arr::only($defaults['vms'] + $defaults['common'], [
                         'from', 'tries', 'interval', 'tts_lector', 'skip_gsm',
                     ]);
                 }
-                $defaults = array_only($defaults, ['sms', 'mms', 'vms']);
+                $defaults = Arr::only($defaults, ['sms', 'mms', 'vms']);
                 $defaults = array_map(function (array $defaults) {
                     return array_filter($defaults, function ($value) {
                         return $value !== null;
