@@ -59,7 +59,8 @@ class SmsapiClient
      */
     public function sendSms(SmsapiSmsMessage $message)
     {
-        $data = $message->data + $this->defaults;
+        $data = $this->mergeDefaults($message->data, 'sms');
+
         $sms = (new SmsFactory($this->proxy, $this->client))->actionSend();
         if (isset($data['content'])) {
             $sms->setText($data['content']);
@@ -116,7 +117,8 @@ class SmsapiClient
      */
     public function sendMms(SmsapiMmsMessage $message)
     {
-        $data = $message->data + $this->defaults;
+        $data = $this->mergeDefaults($message->data, 'mms');
+
         $mms = (new MmsFactory($this->proxy, $this->client))->actionSend();
         $mms->setSubject($data['subject']);
         $mms->setSmil($data['smil']);
@@ -148,7 +150,8 @@ class SmsapiClient
      */
     public function sendVms(SmsapiVmsMessage $message)
     {
-        $data = $message->data + $this->defaults;
+        $data = $this->mergeDefaults($message->data, 'vms');
+
         $vms = (new VmsFactory($this->proxy, $this->client))->actionSend();
         if (isset($data['file'])) {
             $vms->setFile($data['file']);
@@ -188,5 +191,21 @@ class SmsapiClient
         }
 
         return $vms->execute();
+    }
+
+    /**
+     * Merge defaults into message data
+     *
+     * @param array $data message data
+     * @param string $type sms, mms, vms
+     * @return array defaults merged with message data
+     */
+    private function mergeDefaults(array $data, string $type)
+    {
+        if (array_key_exists($type, $this->defaults)) {
+            $data += $this->defaults['sms'];
+        }
+
+        return $data;
     }
 }
