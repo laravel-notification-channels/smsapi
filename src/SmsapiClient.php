@@ -26,6 +26,11 @@ class SmsapiClient
      */
     protected $proxy;
 
+    public const SERVICE_PL = 'https://api.smsapi.pl';
+
+    public const SERVICE_COM = 'https://api.smsapi.com';
+
+
     /**
      * @param Client     $client
      * @param array      $defaults

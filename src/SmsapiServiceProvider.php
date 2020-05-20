@@ -17,7 +17,7 @@ class SmsapiServiceProvider extends ServiceProvider
             ->needs(SmsapiClient::class)
             ->give(function () {
                 $config = config('smsapi');
-                $auth = $config['auth'] + ['service_domain' => 'PL'];
+                $auth = $config['auth'] + ['service' => SmsapiClient::SERVICE_PL];
                 if ($auth['method'] === 'token') {
                     $client = Client::createFromToken($auth['credentials']['token']);
                 } elseif ($auth['method'] === 'password') {
@@ -45,10 +45,7 @@ class SmsapiServiceProvider extends ServiceProvider
                     });
                 }, $defaults);
 
-                $proxy = strtoupper($auth['service_domain']) == 'COM'
-                    ? new Native('https://api.smsapi.com')
-                    : new Native('https://api.smsapi.pl');
-
+                $proxy = new Native($auth['service']);
                 return new SmsapiClient($client, $defaults, $proxy);
             });
 

@@ -1,5 +1,7 @@
 <?php
 
+use NotificationChannels\Smsapi\SmsapiClient;
+
 return [
     'auth' => [
         /*
@@ -21,15 +23,15 @@ return [
 
         /*
         |----------------------------------------------------------------------
-        | TLD of services domain
+        | SMSAPI service type
         |----------------------------------------------------------------------
         | SMSAPI runs a polish service on smsapi.pl and a international service
         | on smsapi.com. This option will set which version will be used.
         |
-        | Supported: "PL", "COM".
+        | Supported: "SmsapiClient::SERVICE_PL", "SmsapiClient::SERVICE_COM".
         |
         */
-        'service_domain' => 'PL',
+        'service' => SmsapiClient::SERVICE_PL,
     ],
 
     /*
