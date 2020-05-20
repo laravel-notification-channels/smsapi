@@ -30,7 +30,6 @@ class SmsapiClient
 
     public const SERVICE_COM = 'https://api.smsapi.com';
 
-
     /**
      * @param Client     $client
      * @param array      $defaults

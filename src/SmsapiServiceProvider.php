@@ -46,6 +46,7 @@ class SmsapiServiceProvider extends ServiceProvider
                 }, $defaults);
 
                 $proxy = new Native($auth['service']);
+
                 return new SmsapiClient($client, $defaults, $proxy);
             });
 
