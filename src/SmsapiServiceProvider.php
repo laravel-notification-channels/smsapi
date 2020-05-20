@@ -25,19 +25,28 @@ class SmsapiServiceProvider extends ServiceProvider
                     $client->setPasswordHash($auth['credentials']['password']);
                 }
                 $defaults = $config['defaults'] + ['sms' => [], 'mms' => [], 'vms' => []];
+
+                $defaults['sms'] = Arr::only($defaults['sms'], [
+                    'from', 'fast', 'flash', 'encoding', 'normalize', 'nounicode', 'single',
+                ]);
+
+                $defaults['mms'] = Arr::only($defaults['mms'], [
+                ]);
+
+                $defaults['vms'] = Arr::only($defaults['vms'], [
+                    'from', 'tries', 'interval', 'tts_lector', 'skip_gsm',
+                ]);
+
                 if (! empty($defaults['common'])) {
                     $defaults['common'] = Arr::only($defaults['common'], [
                         'notify_url', 'partner', 'test',
                     ]);
-                    $defaults['sms'] = Arr::only($defaults['sms'] + $defaults['common'], [
-                        'from', 'fast', 'flash', 'encoding', 'normalize', 'nounicode', 'single',
-                    ]);
-                    $defaults['mms'] = Arr::only($defaults['mms'] + $defaults['common'], [
-                    ]);
-                    $defaults['vms'] = Arr::only($defaults['vms'] + $defaults['common'], [
-                        'from', 'tries', 'interval', 'tts_lector', 'skip_gsm',
-                    ]);
+
+                    $defaults['sms'] += $defaults['common'];
+                    $defaults['mms'] += $defaults['common'];
+                    $defaults['vms'] += $defaults['common'];
                 }
+
                 $defaults = Arr::only($defaults, ['sms', 'mms', 'vms']);
                 $defaults = array_map(function (array $defaults) {
                     return array_filter($defaults, function ($value) {
