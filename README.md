@@ -55,8 +55,8 @@ Set your credentials and defaults in `config/smsapi.php`:
         // 'username' => env('SMSAPI_AUTH_USERNAME'),
         // 'password' => env('SMSAPI_AUTH_PASSWORD'), // Hashed by MD5
     ],
-    // TLD of smsapi. Can be PL or COM.
-    'service_domain' => 'PL',
+    // Service of smsapi. Can be SmsapiClient::SERVICE_PL or SmsapiClient::SERVICE_COM.
+    'service' => SmsapiClient::SERVICE_PL,
 ],
 'defaults' => [
     'common' => [
