@@ -1,5 +1,7 @@
 <?php
 
+use NotificationChannels\Smsapi\SmsapiClient;
+
 return [
     'auth' => [
         /*
@@ -18,6 +20,18 @@ return [
             // 'username' => env('SMSAPI_AUTH_USERNAME'),
             // 'password' => env('SMSAPI_AUTH_PASSWORD'), // Hashed by MD5
         ],
+
+        /*
+        |----------------------------------------------------------------------
+        | SMSAPI service type
+        |----------------------------------------------------------------------
+        | SMSAPI runs a polish service on smsapi.pl and a international service
+        | on smsapi.com. This option will set which version will be used.
+        |
+        | Supported: "SmsapiClient::SERVICE_PL", "SmsapiClient::SERVICE_COM".
+        |
+        */
+        'service' => SmsapiClient::SERVICE_PL,
     ],
 
     /*

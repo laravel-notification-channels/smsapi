@@ -41,7 +41,9 @@ php artisan vendor:publish --provider="NotificationChannels\Smsapi\SmsapiService
 
 ### Setting up the Smsapi service
 
-Log in to your [Smsapi dashboard](https://ssl.smsapi.pl/) and configure your preferred authentication method.
+Log in to your Smsapi dashboard and configure your preferred authentication method. There is a
+[polish version](https://ssl.smsapi.pl/) and an [international version](https://ssl.smsapi.com/)
+which have separated accounts.
 Set your credentials and defaults in `config/smsapi.php`:
 
 ```php
@@ -53,6 +55,8 @@ Set your credentials and defaults in `config/smsapi.php`:
         // 'username' => env('SMSAPI_AUTH_USERNAME'),
         // 'password' => env('SMSAPI_AUTH_PASSWORD'), // Hashed by MD5
     ],
+    // Service of smsapi. Can be SmsapiClient::SERVICE_PL or SmsapiClient::SERVICE_COM.
+    'service' => SmsapiClient::SERVICE_PL,
 ],
 'defaults' => [
     'common' => [
