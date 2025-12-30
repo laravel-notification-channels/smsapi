@@ -31,9 +31,9 @@ class SmsapiClient
     public const SERVICE_COM = 'https://api.smsapi.com';
 
     /**
-     * @param Client     $client
-     * @param array      $defaults
-     * @param Proxy|null $proxy
+     * @param  Client  $client
+     * @param  array  $defaults
+     * @param  Proxy|null  $proxy
      */
     public function __construct(Client $client, array $defaults = [], ?Proxy $proxy = null)
     {
@@ -43,7 +43,7 @@ class SmsapiClient
     }
 
     /**
-     * @param  SmsapiMessage $message
+     * @param  SmsapiMessage  $message
      * @return Response
      */
     public function send(SmsapiMessage $message)
@@ -58,7 +58,7 @@ class SmsapiClient
     }
 
     /**
-     * @param  SmsapiSmsMessage $message
+     * @param  SmsapiSmsMessage  $message
      * @return Response
      */
     public function sendSms(SmsapiSmsMessage $message)
@@ -116,7 +116,7 @@ class SmsapiClient
     }
 
     /**
-     * @param  SmsapiMmsMessage $message
+     * @param  SmsapiMmsMessage  $message
      * @return Response
      */
     public function sendMms(SmsapiMmsMessage $message)
@@ -149,7 +149,7 @@ class SmsapiClient
     }
 
     /**
-     * @param  SmsapiVmsMessage $message
+     * @param  SmsapiVmsMessage  $message
      * @return Response
      */
     public function sendVms(SmsapiVmsMessage $message)
@@ -200,8 +200,8 @@ class SmsapiClient
     /**
      * Merge defaults into message data.
      *
-     * @param array $data message data
-     * @param string $type sms, mms, vms
+     * @param  array  $data  message data
+     * @param  string  $type  sms, mms, vms
      * @return array defaults merged with message data
      */
     private function mergeDefaults(array $data, string $type)
