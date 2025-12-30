@@ -7,7 +7,7 @@ use NotificationChannels\Smsapi\SmsapiClient;
 use NotificationChannels\Smsapi\SmsapiSmsMessage;
 use PHPUnit\Framework\TestCase;
 use SMSApi\Client;
-use SMSApi\Proxy\Http\AbstractHttp as Proxy;
+use SMSApi\Proxy\Http\Native;
 
 /**
  * @internal
@@ -16,7 +16,7 @@ use SMSApi\Proxy\Http\AbstractHttp as Proxy;
 class SmsapiClientTest extends TestCase
 {
     /**
-     * @var Proxy
+     * @var Native
      */
     private $proxy;
 
@@ -28,7 +28,7 @@ class SmsapiClientTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->proxy = Mockery::mock(Proxy::class)->makePartial()->shouldAllowMockingProtectedMethods();
+        $this->proxy = Mockery::mock(Native::class)->makePartial()->shouldAllowMockingProtectedMethods();
         $this->client = new SmsapiClient(
             Client::createFromToken('T_PAAMAYIM_NEKUDOTAYIM'),
             [],

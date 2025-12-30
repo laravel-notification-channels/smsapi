@@ -35,7 +35,7 @@ class SmsapiClient
      * @param array      $defaults
      * @param Proxy|null $proxy
      */
-    public function __construct(Client $client, array $defaults = [], Proxy $proxy = null)
+    public function __construct(Client $client, array $defaults = [], ?Proxy $proxy = null)
     {
         $this->client = $client;
         $this->defaults = $defaults;
