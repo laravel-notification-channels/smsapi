@@ -11,7 +11,7 @@ use SMSApi\Proxy\Http\Native;
 
 /**
  * @internal
- * 
+ *
  * @coversDefaultClass SmsapiClient
  */
 class SmsapiClientTest extends TestCase
