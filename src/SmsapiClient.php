@@ -31,10 +31,10 @@ class SmsapiClient
     public const SERVICE_COM = 'https://api.smsapi.com';
 
     /**
-     * @param Client     $client
-     * @param array      $defaults
-     * @param Proxy|null $proxy
-     */
+    * @param Client     $client
+    * @param array      $defaults
+    * @param Proxy|null $proxy
+    */
     public function __construct(Client $client, array $defaults = [], ?Proxy $proxy = null)
     {
         $this->client = $client;
@@ -43,9 +43,9 @@ class SmsapiClient
     }
 
     /**
-     * @param  SmsapiMessage $message
-     * @return Response
-     */
+    * @param  SmsapiMessage $message
+    * @return Response
+    */
     public function send(SmsapiMessage $message)
     {
         if ($message instanceof SmsapiSmsMessage) {
